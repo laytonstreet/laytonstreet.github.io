@@ -1,0 +1,21 @@
+[{
+    "id": "1",
+    "question": "I'm a leaseholder, occupier and I own a share of the freehold. Which option do I need on the home page?",
+    "answer": "Obviously, more than one of these options can apply to you. Pick the option that is most relevant to what you are trying to do. (e.g. If you're a leaseholder who owns a share of the freehold and you'd like to make modifications to your flat select 'Leaseholders')",
+    "tags": ["navigation", "help", "options"]
+},{
+    "id": "2",
+    "question": "Do we own the freehold yet?",
+    "answer": "Not yet",
+    "tags": ["freehold"]
+},{
+    "id": "3",
+    "question": "I'd like to extend my lease",
+    "answer": "If you'd like to extend your lease please contact us at lease-extension@latonstreet.co.uk",
+    "tags": ["lease", "leasehold", "years"]
+},{
+    "id": "4",
+    "question": "Do answers support line breaks?",
+    "answer": "Yes.\nThey do in fact!",
+    "tags": []
+}]

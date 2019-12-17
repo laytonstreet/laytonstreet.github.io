@@ -1,0 +1,125 @@
+.DataTable {
+
+}
+
+.RowAction {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #333333
+}
+
+.RowAction:hover {
+  color: #666666;
+}
+
+.RowAction>svg {
+  margin-left: .25em;
+}
+
+.input-caption {
+  margin-bottom: .25em;
+}
+
+.valid input[type=text] {
+  background-color:  #c3fabf
+}
+
+.invalid input[type=text] {
+  background-color:  #fde4e2
+}
+
+.input-group.mandatory .input-caption::after {
+  color: #f44336;
+  content: "*";
+}
+
+.tooltip.validation-error .tooltip-inner {
+  background-color: #f44336;
+}
+
+.tooltip.validation-error .arrow::before {
+  border-right-color: #f44336;
+}
+
+.tooltip.validation-error .dismiss {
+  margin-left: .25em;
+  cursor: pointer;
+}
+
+.NotificationsContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 999999;
+}
+
+.Notification {
+  transition: ease-in 1s;
+  animation: fadeIn .5s ease-in both;
+}
+
+.Notification>.alert {
+  margin: .25em;
+}
+
+.Notification>.alert-light {
+  color: black;
+  border-color: rgba(0,0,0,.2);
+}
+
+.Notification .notification-icon {
+  position: absolute;
+  top: .25em;
+  font-size: x-large;
+}
+
+.Notification .notification-message.indented {
+  padding-left: 2.5rem;
+}
+
+@keyframes fadeIn {
+	from {
+		transform: translate3d(0, -100%, 0);
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.page {
+  padding-top: 1.5rem;
+}
+
+.page.page-xs {
+  max-width: 800px;
+}
+
+.card.option {
+  min-width: 14rem;
+  margin: .75rem !important;
+  border: none;
+}
+
+.card.option>a {
+  color: #333333;
+}
+
+.card.option>a:hover {
+  text-decoration: none;
+  color: #666666;
+}
+
+.option svg {
+  margin: .75rem 0;
+}
+
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+}
+
+.error-page {
+  padding-top: 10rem;
+}
