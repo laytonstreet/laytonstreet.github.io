@@ -13,7 +13,7 @@ export default function FaqsPage() {
 
     return (
         <Page narrow>
-            <h1 className="text-center">FAQs</h1>
+            <h1 className="text-center display-4">FAQs</h1>
             <br/>
             <div>
                 {displayFaqs(faqs)}

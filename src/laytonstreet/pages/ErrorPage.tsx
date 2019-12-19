@@ -14,7 +14,7 @@ export default function ErrorPage({code}: Props) {
         <Page narrow className="error-page">
             <div className="text-center align-middle">
                 <FontAwesomeIcon icon={icon.name} color={icon.color} className="display-1"/>
-                <h1>{caption}</h1>
+                <h1 className="display-4">{caption}</h1>
                 <div>{message}</div> 
             </div>
         </Page>

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Collapse, DropdownItem, Nav, NavbarToggler, NavItem } from 'reactstrap';
+import { Collapse, DropdownItem, Nav, NavbarToggler, NavItem } from 'reactstrap';
 import Navbar from 'reactstrap/lib/Navbar';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
 
@@ -10,7 +10,7 @@ export interface Props {
 }
 
 export default function LsNavbar({activeItem}: Props) {
-  const [isOpen, setOpen] = React.useState(true);
+  const [isOpen, setOpen] = React.useState(false);
   const toggle = () => setOpen(!isOpen);
 
   return (
@@ -85,13 +85,13 @@ function UserArea({showUserFullName}: UserAreaProps) {
         {loggedIn ? <LogoutButton /> : <LoginButton />}
       </NavItem>
     </Nav>
-    {loggedIn ? null : <CreateAccountButton />}
+    {/* {loggedIn ? null : <CreateAccountButton />} */}
   </>;
 }
 
 function LogoutButton() {
   return (
-    <NavLink to="/logout">
+    <NavLink to="/logout" className="nav-link">
       Sign out <FontAwesomeIcon icon="sign-out-alt" />
     </NavLink>
   );
@@ -99,13 +99,13 @@ function LogoutButton() {
 
 function LoginButton() {
   return (
-    <NavLink to="/login">
+    <NavLink to="/login" className="nav-link">
       Sign in <FontAwesomeIcon icon="sign-in-alt" />
     </NavLink>
   );
 }
 
-function CreateAccountButton() {
-  const clicked = function(): void { window.location.href = "/create-account" };
-  return <Button className="ml-md-3" onClick={clicked}>Sign up</Button>
-}
+// function CreateAccountButton() {
+//   const clicked = function(): void { window.location.href = "/create-account" };
+//   return <Button className="ml-md-3" onClick={clicked}>Sign up</Button>
+// }

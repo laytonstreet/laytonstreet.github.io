@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Card from 'reactstrap/lib/Card';
 import CardBody from 'reactstrap/lib/CardBody';
 import CardTitle from 'reactstrap/lib/CardTitle';
+import CardSubtitle from 'reactstrap/lib/CardSubtitle';
 
 export interface Props {
     title: string,
@@ -18,9 +19,9 @@ export default function Option({title, icon, text, link}: Props) {
         <Card className="text-center option">
             <Link to={link}>
                 <CardBody>
-                    <CardTitle><h3>{title}</h3></CardTitle>
-                        <FontAwesomeIcon icon={icon} className="display-1" />
-                    <CardBody>{text}</CardBody>
+                    <FontAwesomeIcon icon={icon} size="4x" />
+                    <CardTitle>{title}</CardTitle>
+                    <CardSubtitle>{text}</CardSubtitle>
                 </CardBody>
             </Link>
         </Card>
