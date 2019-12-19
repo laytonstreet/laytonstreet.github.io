@@ -7,11 +7,9 @@ import LsNavbar from './laytonstreet/components/LsNavbar';
 import ContactUsPage from './laytonstreet/pages/ContactUsPage';
 import ErrorPage from './laytonstreet/pages/ErrorPage';
 import FaqsPage from './laytonstreet/pages/FaqsPage';
+import GroundRentPage from './laytonstreet/pages/GroundRentPage';
 import Home from './laytonstreet/pages/Home';
 import MembersPage from './laytonstreet/pages/MembersPage';
-import LeaseholdersPage from './laytonstreet/pages/LeaseholdersPage';
-import CantFindWhatYoureLookingForToast from './laytonstreet/components/CantFindWhatYoureLookingForToast';
-import GroundRentPage from './laytonstreet/pages/GroundRentPage';
 
 
 export default function App() {
@@ -38,9 +36,6 @@ export default function App() {
           <Route path="/members">
             <MembersPage/>
           </Route>
-          <Route path="/leaseholders">
-            <LeaseholdersPage/>
-          </Route>
           <Route path="/ground-rent">
             <GroundRentPage/>
           </Route>
@@ -48,7 +43,6 @@ export default function App() {
             <ErrorPage code={404} />
           </Route>
         </Switch>
-        <CantFindWhatYoureLookingForToast/>
       </div>
       {/* <NotificationsContainer /> */}
     </BrowserRouter>
