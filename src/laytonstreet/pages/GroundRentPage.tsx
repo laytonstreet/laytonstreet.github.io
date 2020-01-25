@@ -18,8 +18,8 @@ export default function GroundRentPage() {
                 If you'd rather not pay online please <Link to="contact-us">contact us</Link> to discuss other payment options.
             </p>
             <Form>
+                <Label for="groundRentReference">Reference</Label>
                 <InputGroup>
-                    <Label for="groundRentReference">Reference</Label>
                     <Input
                         id="groundRentReference"
                         name="reference"
