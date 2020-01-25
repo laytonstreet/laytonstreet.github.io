@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Collapse, DropdownItem, Nav, NavbarToggler, NavItem } from 'reactstrap';
 import Navbar from 'reactstrap/lib/Navbar';
 import NavbarBrand from 'reactstrap/lib/NavbarBrand';
+import Icon from './Icon';
 
 export interface Props {
   activeItem?: string
@@ -15,10 +16,15 @@ export default function LsNavbar({activeItem}: Props) {
 
   return (
     <Navbar className="navbar-expand-lg navbar-light bg-light">
-      <NavbarBrand href="/">Layton Street</NavbarBrand>
+      <NavbarBrand href="/"><Icon icon="layton-street"/>Layton Street</NavbarBrand>
       <NavbarToggler onClick={toggle} className="mr-2" />
       <Collapse isOpen={isOpen} navbar>
         <Links activeItem={activeItem}>
+          <NavItem>
+            <NavLink to="/" className="nav-link" activeClassName="active">
+              Home
+            </NavLink>
+          </NavItem>
           <NavItem>
             <NavLink to="/news" className="nav-link" activeClassName="active">
               News
