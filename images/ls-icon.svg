@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" >
+    <g fill="currentColor" opacity="1" fill-opacity="1">
+        <path d="M3,0 m30,30 h-30 v20 h20 v20 h20 v-30 z
+                M97,0 m-30,30 h30 v20 h-20 v20 h-20 v-30 z" />
+    </g>
+</svg>
