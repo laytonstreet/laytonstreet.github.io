@@ -2,7 +2,6 @@ import * as React from 'react';
 import CardDeck from 'reactstrap/lib/CardDeck';
 import Option from '../components/Option';
 import Page from '../components/Page';
-import CantFindWhatYoureLookingForToast from '../components/CantFindWhatYoureLookingForToast';
 
 export default function Home() {
     return (
@@ -38,7 +37,7 @@ export default function Home() {
                         text="I'd like to rent out my flat or change my tenants"
                         link="rentals" />
             </CardDeck>
-            <CantFindWhatYoureLookingForToast/>
+            {/* <CantFindWhatYoureLookingForToast/> */}
         </Page>
     );
 }

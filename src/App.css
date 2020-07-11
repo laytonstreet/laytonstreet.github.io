@@ -123,6 +123,10 @@ form label {
   font-weight: 600;
 }
 
+form label.form-check-label {
+  font-weight: inherit;
+}
+
 @media(max-width: 480px) {
   h1.display-3 {
     font-size: 3rem;

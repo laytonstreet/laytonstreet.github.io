@@ -10,6 +10,7 @@ import FaqsPage from './laytonstreet/pages/FaqsPage';
 import GroundRentPage from './laytonstreet/pages/GroundRentPage';
 import Home from './laytonstreet/pages/Home';
 import MembersPage from './laytonstreet/pages/MembersPage';
+import LeaseExtensionCalculatorPage from './laytonstreet/pages/LeaseExtensionCalculatorPage';
 
 
 export default function App() {
@@ -19,10 +20,10 @@ export default function App() {
         <LsNavbar activeItem="" />
         <Switch>
           <Route exact path="/">
-            <Home/>
+            {''.length > 0 ? <Home/> : <ErrorPage code={501} />}
           </Route>
           <Route path="/faqs">
-            <FaqsPage/>
+          {''.length > 0 ? <FaqsPage/> : <ErrorPage code={501} />}
           </Route>
           <Route path="/contact-us">
             <ContactUsPage/>
@@ -34,10 +35,13 @@ export default function App() {
             <ErrorPage code={501} />
           </Route>
           <Route path="/members">
-            <MembersPage/>
+            {''.length > 0 ? <MembersPage/> : <ErrorPage code={501} />}
           </Route>
           <Route path="/ground-rent">
-            <GroundRentPage/>
+            {''.length > 0 ? <GroundRentPage/> : <ErrorPage code={501} />}
+          </Route>
+          <Route path="/lease-extension-calculator">
+            <LeaseExtensionCalculatorPage/>
           </Route>
           <Route path="*">
             <ErrorPage code={404} />

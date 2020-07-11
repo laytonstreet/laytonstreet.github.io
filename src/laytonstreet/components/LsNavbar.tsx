@@ -64,7 +64,7 @@ export default function LsNavbar({activeItem}: Props) {
           </UncontrolledDropdown> */}
         </Links>
         {isOpen ? <DropdownItem divider /> : null}
-        <UserArea />
+        {''.length > 0 ? <UserArea /> : null}
       </Collapse>
     </Navbar>
   );
