@@ -1,8 +1,8 @@
 export type GroundRentCalculation = (year: number) => number;
 
 export enum GroundRentTerms {
-    INCREASING_FROM_125,
-    INCREASING_FROM_150
+    INCREASING_FROM_125 = "INCREASING_FROM_125",
+    INCREASING_FROM_150 = "INCREASING_FROM_150"
 }
 
 export function getGroundRentCalculation(groundRentTerms: GroundRentTerms): GroundRentCalculation {

@@ -7,10 +7,10 @@ import TextInput from './inputs/TextInput';
 import { GroundRentTerms, getGroundRentCalculation } from '../types/GroundRentTerms';
 
 export enum ExtensionType {
-    STATUTORY,
-    EXTEND_TO_99,
-    EXTEND_TO_125,
-    EXTEND_TO_999
+    STATUTORY = "STATUTORY",
+    EXTEND_TO_99 = "EXTEND_TO_99",
+    EXTEND_TO_125 = "EXTEND_TO_125",
+    EXTEND_TO_999 = "EXTEND_TO_999"
 }
 
 function getNumberOfYearsToExtendBy(extensionType: ExtensionType, yearsCurrentlyRemainingOnLease: number): number {

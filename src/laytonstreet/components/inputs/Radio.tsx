@@ -29,7 +29,6 @@ export function Radio({ name, caption, children, onValueChange, value: defaultVa
                 <Input type="radio"
                     name={name}
                     {...option.props}
-                    defaultChecked={option.props.value == defaultValue}
                     checked={value == option.props.value}
                     onChange={(e) => {
                         if (e.target.checked) {

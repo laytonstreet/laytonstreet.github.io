@@ -30,3 +30,8 @@ export function round(value: number, options: RoundingOptions = { decimalPlaces:
         return Math.round((value / tens) + Number.EPSILON) * tens;
     }
 }
+
+export function monthDiff(dateFrom: Date, dateTo: Date) {
+    return dateTo.getMonth() - dateFrom.getMonth()
+         + (12 * (dateTo.getFullYear() - dateFrom.getFullYear()))
+}
