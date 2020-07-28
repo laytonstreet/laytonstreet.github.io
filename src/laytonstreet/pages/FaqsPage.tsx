@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { loadFaqs } from '../api/FaqsApi';
+import * as ReactMarkdown from 'react-markdown';
+import { Spinner } from 'reactstrap';
+import { loadAnswer, loadFaqs } from '../api/FaqsApi';
+import FileCompatibleLink from '../components/FileCompatibleLink';
 import Page from '../components/Page';
 import Faq from '../entities/Faq';
-import { intersperse } from '../utils/LsUtils';
-import { Spinner } from 'reactstrap';
 
 export default function FaqsPage() {
     const [faqs, setFaqs] = React.useState<Faq[]>();
@@ -29,12 +30,25 @@ function displayFaqs(faqs?: Faq[]) {
 }
 
 function CollapsableFaq({faq}: {faq: Faq}) {
-    const answerLines = faq.answer.split("\n");
-    const answerWithLineBreaks = intersperse<any>(answerLines, <br />);
+    const [answer, setAnswer] = React.useState<string>();
+    React.useEffect(() => {
+        loadAnswer(faq.id)
+            .then(setAnswer)
+            .catch(() => setAnswer('...'));
+    }, [faq.id]);
     return (
         <div>
             <h3>{faq.question}</h3>
-            <p>{[...answerWithLineBreaks]}</p>
+            <ReactMarkdown
+                source={answer}
+                renderers={{ link: (props) => <FileCompatibleLink href={props.href} >{props.children}</FileCompatibleLink>}}
+                transformLinkUri={(uri) => {
+                    if (uri.startsWith('file:')) {
+                        return uri;
+                    } else {
+                        return ReactMarkdown.uriTransformer(uri);
+                    }
+                }} />
         </div>
     );
 }
