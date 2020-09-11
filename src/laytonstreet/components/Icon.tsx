@@ -1,6 +1,34 @@
 import * as React from 'react';
+import { library, IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faSignInAlt, faSignOutAlt, faEdit, faTimes, faExclamationTriangle, faCheckCircle, faTimesCircle, faExclamationCircle, faInfoCircle, faFile, faFileCode, faFileAlt, faFileArchive, faFileImage, faFileUpload, faFileDownload, faFileCsv, faFileWord } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-type IconName = "layton-street"
+const faIcons = [
+    faSignInAlt, 
+    faSignOutAlt, 
+    faEdit, 
+    faTimes,
+    faExclamationTriangle,
+    faCheckCircle,
+    faTimesCircle,
+    faExclamationCircle,
+    faInfoCircle,
+    faFileUpload,
+    faFileDownload,
+    faFile,
+    faFileAlt,
+    faFileCode,
+    faFileArchive,
+    faFileImage,
+    faFileCsv,
+    faFileWord,
+];
+
+library.add(...faIcons);
+
+type CustomIcons = "layton-street";
+
+type IconName = CustomIcons | IconProp;
 
 interface IconDef {
     width: number,
@@ -8,7 +36,7 @@ interface IconDef {
     path: string
 }
 
-const iconDefinitions: {[key: string]: IconDef} = {
+const iconDefinitions: {[key in CustomIcons]: IconDef} = {
     "layton-street": {
         width: 100,
         height: 100,
@@ -16,21 +44,37 @@ const iconDefinitions: {[key: string]: IconDef} = {
     }
 }
 
-interface IconProps {
+type IconProps = {
     icon: IconName,
-}
+    color?: string,
+    className?: string
+} & Omit<React.DOMAttributes<SVGSVGElement>, 'children' | 'mask'>
 
-export default function Icon({icon}: IconProps) {
-    const { width, height, path } = iconDefinitions[icon];
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg"
-            xlinkHref="http://www.w3.org/1999/xlink"
-            version="1.1"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox={`0 0 ${width} ${height}`} >
-            <g fill="currentColor" opacity="1" fill-opacity="1">
-                <path d={path} />
-            </g>
-        </svg>
-    );
+export default function Icon({ icon, className = "", onClick, ...otherProps }: IconProps) {
+    className += " Icon";
+    if (onClick) {
+        className += " clickable";
+    }
+    const iconDefinition = iconDefinitions[icon as CustomIcons];
+    if (iconDefinition) {
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg"
+                xlinkHref="http://www.w3.org/1999/xlink"
+                version="1.1"
+                preserveAspectRatio="xMidYMid meet"
+                viewBox={`0 0 ${iconDefinition.width} ${iconDefinition.height}`}
+                className={className}
+                onClick={onClick}
+                {...otherProps}  >
+                <g fill="currentColor" opacity="1" fillOpacity="1">
+                    <path d={iconDefinition.path} />
+                </g>
+            </svg>
+        );
+    } else {
+        return <FontAwesomeIcon icon={icon as IconProp}
+            className={className}
+            onClick={onClick}
+            {...otherProps} />
+    }
 }

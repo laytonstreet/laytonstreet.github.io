@@ -26,8 +26,7 @@ export function round(value: number, options: RoundingOptions = { decimalPlaces:
         const tens = Math.pow(10, (options as any).decimalPlaces)
         return Math.round((value + Number.EPSILON) * tens) / tens;
     } else {
-        const tens = Math.pow(10, (options as any).significantFigures)
-        return Math.round((value / tens) + Number.EPSILON) * tens;
+        return parseFloat(value.toPrecision((options as any).significantFigures));
     }
 }
 
