@@ -115,6 +115,21 @@ h1, h2, h3, h4 {
   /* color: #d0ba6a; */
 }
 
+h1.text-center.display-4 {
+  position: relative;
+}
+
+h1.text-center.display-4::after {
+  position: absolute;
+  bottom: -.05em;
+  width: 1em;
+  left: 50%;
+  margin-left: -.5em;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #d0ba6a 25% 75%, transparent);
+  content: "";
+}
+
 h1.display-3  {
   font-weight: 200;
 }
@@ -194,4 +209,109 @@ form label.form-check-label {
 
 .error-page {
   padding-top: 10rem;
+}
+
+.Icon {
+
+}
+
+.Icon.clickable {
+  cursor: pointer;
+}
+
+.Icon.clickable:hover {
+  opacity: 0.8;
+}
+
+.FileUploadArea {
+  border: dashed 3px rgba(0,0,0,.2);
+  text-align: center;
+  height: 8em;
+  line-height: 8em;
+  position: relative;
+}
+
+.FileUploadArea.dragging {
+  border-color: #007bff;
+}
+
+.FileUploadArea.withFile {
+  border: solid 3px rgba(0,0,0,.1);
+}
+
+.FileUploadArea>* {
+  line-height: initial;
+  vertical-align: middle;
+}
+
+.FileUploadArea.dragging>.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background: #007bff;
+}
+
+/* 
+.FileUploadArea button {
+  padding: 0.1em 0.5em;
+} */
+
+.UploadedFile {
+  display: inline-flex;
+  max-width: 28em;
+  text-align: initial;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.UploadedFile .fileIcon {
+  width: 3.75em;
+  height: 3.75em;
+  margin-right: .5em;
+}
+
+.WizardNavButtons {
+  text-align: right;
+}
+
+.WizardNavButtons button {
+  margin-left: .6em;
+}
+
+.ActionList>.nav-item {
+  position: relative;
+}
+
+.ActionList>.nav-item:not(:first-of-type):before {
+  content: "|";
+  position: absolute;
+  top: .5em;
+  left: -.1em;
+}
+
+.ActionList>.nav-item>.nav-link {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.ActionList>.nav-item:first-of-type>.nav-link {
+  padding-left: 0;
+  padding-right: 0.5em;
+}
+
+.ActionList>.nav-item:last-of-type>.nav-link {
+  padding-left: 0.5em;
+  padding-right: 0;
+}
+
+.spreadsheet-container {
+  overflow: scroll;
+  width: calc(100vw - 1em);
+  height: 28em;
+  margin: .5em;
+  margin-left: calc(50% - 49.50vw);
+  margin-right: calc(50% - 49.50vw);
+  border: solid 1px #ccc;
+  background-color: #aaaaaa;
 }
