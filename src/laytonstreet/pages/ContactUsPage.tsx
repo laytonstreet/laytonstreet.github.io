@@ -1,37 +1,16 @@
 import * as React from 'react';
 import Page from '../components/Page';
+import Text from '../components/Text';
+import { GlobalPublicContext } from '../contexts/GlobalPublicContext';
 
 export default function ContactUsPage() {
-    const companyName = "Layton Street Freehold Company Ltd"
-    const companyNumber = "11098547"
-    const registeredAddress = "Mint Lettings Ltd, 162b, Stevenage, England, SG1 3LL";
-    const email = "freehold@laytonstreet.co.uk";
+    const { freeholder } = React.useContext(GlobalPublicContext)!;
     return (
         <Page narrow>
-            <h1 className="text-center display-4">Contact us</h1>
+            <h1 className="text-center display-4">About us</h1>
             <br/>
-            <address>
-                <p>
-                    <strong>Company name</strong>
-                    <br/>
-                    {companyName}
-                </p>
-                <p>
-                    <strong>Company number</strong>
-                    <br/>
-                    {companyNumber}
-                </p>
-                <p>
-                    <strong>Registered address</strong>
-                    <br/>
-                    {registeredAddress}
-                </p>
-                <p>
-                    <strong>Email</strong>
-                    <br/>
-                    <a href={`mailto:${email}`}>{email}</a>
-                </p>
-            </address> 
+            <Text source="intro" context={GlobalPublicContext}/>
+            <Text source="company_info_template" context={freeholder}/>
         </Page>
     );
 }

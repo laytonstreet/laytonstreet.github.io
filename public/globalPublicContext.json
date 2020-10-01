@@ -1,0 +1,20 @@
+{
+    "freeholder": {
+        "name": "Layton Street Freehold Company Ltd",
+        "shortName": "LSF",
+        "registeredIn": "England & Wales",
+        "companyNumber": "11098547",
+        "address": "c/o Mint Lettings and Management Ltd,  \n16b High Street,  \nStevenage SG1 3LL",
+        "email": "freehold@laytonstreet.co.uk"
+    },
+    "rtmCompany": {
+        "name": "Howlands Estate Management Company Limited",
+        "shortName": "HEMCL"
+    },
+    "managingAgent": {
+        "name": "Mint Lettings and Management Ltd",
+        "shortName": "Mint Letting",
+        "address": "16b High Street,  \nStevenage SG1 3LL",
+        "email": "info@mint-letting.co.uk"
+    }
+}

@@ -41,8 +41,8 @@ export default function LsNavbar({activeItem}: Props) {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/contact-us" className="nav-link" activeClassName="active">
-              Contact us
+            <NavLink to="/about-us" className="nav-link" activeClassName="active">
+              About us
             </NavLink>
           </NavItem>
           {/* <UncontrolledDropdown nav inNavbar>

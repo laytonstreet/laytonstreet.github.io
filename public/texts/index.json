@@ -1,0 +1,14 @@
+[{
+    "id": "intro",
+    "path": "/intro.md",
+    "context": "GlobalPublicContext"
+},{
+    "id": "company_info_template",
+    "path": "/company_info_template.md",
+    "context": "{ name, shortName?, companyNumber?, registeredIn?, address?, email? }"
+},{
+    "id": "privacy_policy",
+    "path": "/privacy_policy.md",
+    "context": "GlobalPublicContext",
+    "tags": ["company", "legal", "law", "privacy", "personal", "data", "information", "policy", "ico", "gdpr", "protection", "request", "process"]
+}]

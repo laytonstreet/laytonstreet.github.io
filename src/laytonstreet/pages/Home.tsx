@@ -2,9 +2,10 @@ import * as React from 'react';
 import CardDeck from 'reactstrap/lib/CardDeck';
 import Option from '../components/Option';
 import Page from '../components/Page';
+import ContactUsPage from './ContactUsPage';
 
 export default function Home() {
-    return (
+    return (<>
         <Page>
             <h1 className="text-center display-3">
                 <span className="d-inline-block">Welcome to</span>{"\u00A0"}
@@ -37,7 +38,7 @@ export default function Home() {
                         text="I'd like to rent out my flat or change my tenants"
                         link="rentals" />
             </CardDeck>
-            {/* <CantFindWhatYoureLookingForToast/> */}
         </Page>
-    );
+        <ContactUsPage/>
+    </>);
 }
