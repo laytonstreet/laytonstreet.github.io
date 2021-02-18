@@ -11,11 +11,12 @@ import GroundRentPage from './laytonstreet/pages/GroundRentPage';
 import Home from './laytonstreet/pages/Home';
 import MembersPage from './laytonstreet/pages/MembersPage';
 import LeaseExtensionCalculatorPage from './laytonstreet/pages/LeaseExtensionCalculatorPage';
-import TemplaterPage from './laytonstreet/pages/TemplaterPage';
 import { GlobalPublicContextType, loadGlobalPublicContext, GlobalPublicContext } from './laytonstreet/contexts/GlobalPublicContext';
+import { UserContext, UserInfo } from './laytonstreet/contexts/UserContext';
 
 export default function App() {
   const [globalPublicContext, setGlobalPublicContext] = React.useState<GlobalPublicContextType>();
+  const [userInfo, setUserInfo] = React.useState<UserInfo>();
   React.useEffect(() => {
     loadGlobalPublicContext().then(setGlobalPublicContext);
   }, []);
@@ -24,44 +25,43 @@ export default function App() {
   }
   return (
     <GlobalPublicContext.Provider value={globalPublicContext}>
-      <BrowserRouter>
-        <div className="App">
-          <LsNavbar activeItem="" />
-          <Switch>
-            <Route exact path="/">
-              <Home/>
-            </Route>
-            <Route path="/faqs">
-            {''.length >= 0 ? <FaqsPage/> : <ErrorPage code={501} />}
-            </Route>
-            <Route path="/about-us">
-              <AboutUsPage/>
-            </Route>
-            <Route path="/news">
-              <ErrorPage code={501} />
-            </Route>
-            <Route path="/maintenance">
-              <ErrorPage code={501} />
-            </Route>
-            <Route path="/members">
-              {''.length > 0 ? <MembersPage/> : <ErrorPage code={501} />}
-            </Route>
-            <Route path="/ground-rent">
-              {''.length > 0 ? <GroundRentPage/> : <ErrorPage code={501} />}
-            </Route>
-            <Route path="/lease-extension-calculator">
-              <LeaseExtensionCalculatorPage/>
-            </Route>
-            <Route path="/templater">
-              <TemplaterPage />
-            </Route>
-            <Route path="*">
-              <ErrorPage code={404} />
-            </Route>
-          </Switch>
-        </div>
-        {/* <NotificationsContainer /> */}
-      </BrowserRouter>
+      <UserContext.Provider value={userInfo}>
+        <BrowserRouter>
+          <div className="App">
+            <LsNavbar activeItem="" />
+            <Switch>
+              <Route exact path="/">
+                <Home/>
+              </Route>
+              <Route path="/faqs">
+              {''.length >= 0 ? <FaqsPage/> : <ErrorPage code={501} />}
+              </Route>
+              <Route path="/about-us">
+                <AboutUsPage/>
+              </Route>
+              <Route path="/news">
+                <ErrorPage code={501} />
+              </Route>
+              <Route path="/maintenance">
+                <ErrorPage code={501} />
+              </Route>
+              <Route path="/members">
+                {''.length > 0 ? <MembersPage/> : <ErrorPage code={501} />}
+              </Route>
+              <Route path="/ground-rent">
+                {''.length > 0 ? <GroundRentPage/> : <ErrorPage code={501} />}
+              </Route>
+              <Route path="/lease-extension-calculator">
+                <LeaseExtensionCalculatorPage/>
+              </Route>
+              <Route path="*">
+                <ErrorPage code={404} />
+              </Route>
+            </Switch>
+          </div>
+          {/* <NotificationsContainer /> */}
+        </BrowserRouter>
+      </UserContext.Provider>
     </GlobalPublicContext.Provider>
   );
 }
