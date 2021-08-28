@@ -1,4 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { login, logout } from 'laytonstreet/api/LaytonStreetApi';
+import { UserContext } from 'laytonstreet/contexts/UserContext';
+import { UserInfo } from 'laytonstreet/types/LaytonStreetTypes';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Collapse, DropdownItem, Nav, NavbarToggler, NavItem } from 'reactstrap';
@@ -8,9 +11,11 @@ import Icon from './Icon';
 
 export interface Props {
   activeItem?: string
+  onLogin: (userInfo: UserInfo) => void
+  onLogout: () => void
 }
 
-export default function LsNavbar({activeItem}: Props) {
+export default function LsNavbar({ activeItem, onLogin, onLogout }: Props) {
   const [isOpen, setOpen] = React.useState(false);
   const toggle = () => setOpen(!isOpen);
 
@@ -28,11 +33,6 @@ export default function LsNavbar({activeItem}: Props) {
           <NavItem>
             <NavLink to="/news" className="nav-link" activeClassName="active">
               News
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to="/maintenance" className="nav-link" activeClassName="active">
-              Maintenance
             </NavLink>
           </NavItem>
           <NavItem>
@@ -64,7 +64,7 @@ export default function LsNavbar({activeItem}: Props) {
           </UncontrolledDropdown> */}
         </Links>
         {isOpen ? <DropdownItem divider /> : null}
-        {''.length > 0 ? <UserArea /> : null}
+        <UserArea onLogin={onLogin} onLogout={onLogout} />
       </Collapse>
     </Navbar>
   );
@@ -80,32 +80,54 @@ function Links(props: any) {
 
 interface UserAreaProps {
   showUserFullName?: boolean;
+  onLogin: (userInfo: UserInfo) => void
+  onLogout: () => void
 }
 
-function UserArea({showUserFullName}: UserAreaProps) {
-  const [userInfo] = React.useState(undefined);
+function UserArea({ showUserFullName, onLogin, onLogout }: UserAreaProps) {
+  const userInfo = React.useContext(UserContext);
   const loggedIn: boolean = userInfo != undefined;
   return <>
     <Nav className="ml-auto" navbar>
+      {loggedIn &&
+        <NavItem>
+          <span className="navbar-text">
+            {`Signed in as ${userInfo?.displayName}`}&nbsp;<Icon icon="user" />&nbsp; 
+          </span>
+        </NavItem>
+      }
       <NavItem>
-        {loggedIn ? <LogoutButton /> : <LoginButton />}
+        {loggedIn ? <LogoutButton onLogout={onLogout} /> : <LoginButton onLogin={onLogin} />}
       </NavItem>
     </Nav>
     {/* {loggedIn ? null : <CreateAccountButton />} */}
   </>;
 }
 
-function LogoutButton() {
+function LogoutButton({ onLogout }: { onLogout: () => void }) {
+  const onClick = async () => {
+    await logout();
+    onLogout();
+  }
   return (
-    <NavLink to="/logout" className="nav-link">
+    <NavLink to="/logout" className="nav-link" onClick={onClick}>
       Sign out <FontAwesomeIcon icon="sign-out-alt" />
     </NavLink>
   );
 }
 
-function LoginButton() {
+function LoginButton({ onLogin }: { onLogin: (userInfo: UserInfo) => void }) {
+  const onClick = async () => {
+    const { redirectUri, userInfo } = await login();
+    if (redirectUri) {
+      window.location.href = redirectUri;
+    }
+    if (userInfo) {
+      onLogin(userInfo);
+    }
+  }
   return (
-    <NavLink to="/login" className="nav-link">
+    <NavLink to="#" className="nav-link" onClick={onClick}>
       Sign in <FontAwesomeIcon icon="sign-in-alt" />
     </NavLink>
   );

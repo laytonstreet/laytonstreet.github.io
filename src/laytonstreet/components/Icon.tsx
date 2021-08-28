@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { library, IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faSignInAlt, faSignOutAlt, faEdit, faTimes, faExclamationTriangle, faCheckCircle, faTimesCircle, faExclamationCircle, faInfoCircle, faFile, faFileCode, faFileAlt, faFileArchive, faFileImage, faFileUpload, faFileDownload, faFileCsv, faFileWord } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faSignOutAlt, faEdit, faTimes, faExclamationTriangle, faCheckCircle, faTimesCircle, faExclamationCircle, faInfoCircle, faFile, faFileCode, faFileAlt, faFileArchive, faFileImage, faFileUpload, faFileDownload, faFileCsv, faFileWord, faBan, faUser, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const faIcons = [
+    faUser,
     faSignInAlt, 
     faSignOutAlt, 
     faEdit, 
@@ -22,6 +23,9 @@ const faIcons = [
     faFileImage,
     faFileCsv,
     faFileWord,
+    faBan,
+    faAngleLeft,
+    faAngleRight,
 ];
 
 library.add(...faIcons);

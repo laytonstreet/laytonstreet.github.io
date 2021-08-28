@@ -1,8 +1,8 @@
-import { TextId, textDefinitions } from 'src/generated/texts';
+import { textDefinitions, TextId } from 'generated/texts';
+import * as Handlebars from 'handlebars';
 import * as React from 'react';
 import * as ReactMarkdown from 'react-markdown';
 import FileCompatibleLink from './FileCompatibleLink';
-import * as Handlebars from 'handlebars';
 
 type TextProps = { 
     source: TextId,

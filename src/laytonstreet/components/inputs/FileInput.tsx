@@ -1,3 +1,5 @@
+import Icon from 'laytonstreet/components/Icon';
+import { formatBytes, getIconForFile } from 'laytonstreet/utils/FileUtils';
 import * as React from 'react';
 import FormFeedback from 'reactstrap/lib/FormFeedback';
 import FormGroup from 'reactstrap/lib/FormGroup';
@@ -7,10 +9,8 @@ import Media from 'reactstrap/lib/Media';
 import Nav from 'reactstrap/lib/Nav';
 import NavItem from 'reactstrap/lib/NavItem';
 import NavLink from 'reactstrap/lib/NavLink';
-import { formatBytes, getIconForFile } from 'src/laytonstreet/utils/FileUtils';
-import Icon from '../Icon';
-import Validation, { Unfinished } from './Validation';
 import Spinner from 'reactstrap/lib/Spinner';
+import Validation, { Unfinished } from './Validation';
 
 type Props = {
     id: string

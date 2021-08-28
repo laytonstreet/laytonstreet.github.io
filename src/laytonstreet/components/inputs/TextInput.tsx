@@ -10,9 +10,10 @@ type TextInputProps = {
     type?: InputType,
     children?: string | React.Component | React.Component[],
     value?: string | number,
-    onValueChange: (value: string) => void,
-    placeholder?: string
-};
+    placeholder?: string,
+    onValueChange?: (value: string) => void
+    readonly?: boolean
+} & ({ onValueChange: (value: string) => void } | { readonly: true });
 
 export default function TextInput({
     id,
@@ -20,7 +21,8 @@ export default function TextInput({
     children: caption,
     value: defaultValue,
     onValueChange,
-    placeholder
+    placeholder,
+    readonly
 }: TextInputProps) {
     const [value, setValue] = defaultValue ? React.useState<string>(defaultValue.toString()) : React.useState<string>();
     
@@ -31,10 +33,11 @@ export default function TextInput({
                 type={type}
                 value={value}
                 placeholder={placeholder}
-                onChange={(e) => {
+                readOnly={readonly}
+                onChange={onValueChange ? (e) => {
                     setValue(e.target.value);
                     onValueChange(e.target.value);
-                }} />
+                } : undefined} />
         </FormGroup>
     );
 }
